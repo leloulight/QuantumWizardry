@@ -1,0 +1,24 @@
+package messpace.QuantumWizardry.items;
+
+import net.minecraft.init.Items;
+import net.minecraft.item.Item;
+import net.minecraft.item.ItemStack;
+import net.minecraft.nbt.NBTTagList;
+import net.minecraft.nbt.NBTTagString;
+
+public class ItemQuantumGuide extends Item{
+	
+	public ItemQuantumGuide() {
+		ItemStack tomeStack = new ItemStack(Items.written_book);
+		NBTTagList bookPages = new NBTTagList("pages");
+		bookPages.appendTag(new NBTTagString("1", "Insert text here."));
+		bookPages.appendTag(new NBTTagString("2", "Insert moar text here."));
+		tomeStack.setTagInfo("pages", bookPages);
+		tomeStack.setTagInfo("author", new NBTTagString("author", "Author name here"));
+		tomeStack.setTagInfo("title", new NBTTagString("title", "Title here"));
+		tomeStack.itemID = Item.writtenBook.itemID;
+	}
+	
+	
+
+}
