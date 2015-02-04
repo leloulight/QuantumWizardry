@@ -56,7 +56,7 @@ public class PlayerNetworkManager implements IExtendedEntityProperties
 	public PlayerNetworkManager(EntityPlayer player)
 	{
 		this.player = player;
-		this.currentEnergy = 0;
+		this.currentEnergy = this.maxEnergy;
 		this.maxEnergy = 50;
 	}
 
@@ -83,8 +83,8 @@ public class PlayerNetworkManager implements IExtendedEntityProperties
 	public void loadNBTData(NBTTagCompound compound)
 	{
 		NBTTagCompound properties = (NBTTagCompound) compound.getTag(EXT_PROP_NAME);
-		this.currentEnergy = properties.getInteger("CurrentMana");
-		this.maxEnergy = properties.getInteger("MaxMana");
+		this.currentEnergy = properties.getInteger("CurrentEnergy");
+		this.maxEnergy = properties.getInteger("MaxEnergy");
 		System.out.println("[TUT PROPS] Mana from NBT: " + this.currentEnergy + "/" + this.maxEnergy);
 	}
 	
@@ -101,10 +101,12 @@ public class PlayerNetworkManager implements IExtendedEntityProperties
 	}
 	
 	public void addEnergy(int amount) {
-		this.currentEnergy = this.currentEnergy + amount;
+		int getCurrentEnergy = this.currentEnergy;
+		currentEnergy = getCurrentEnergy + amount;
 	}
 	
 	public int getEnergy() {
+		System.out.println("Getting energy: "+this.currentEnergy+"/"+this.maxEnergy);
 		return this.currentEnergy;
 	}
 

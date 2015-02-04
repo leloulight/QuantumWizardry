@@ -15,13 +15,10 @@ public class ItemQuantumReader extends Item {
 
 		@Override
 		public ItemStack onItemRightClick(ItemStack itemstack, World world, EntityPlayer player) {
-			
-			
 				PlayerNetworkManager props = PlayerNetworkManager.get(player);
-				
 				int currentEnergy = props.getEnergy();
 				
-				if(world.isRemote) {
+				if(!world.isRemote) {
 					player.addChatMessage(new ChatComponentTranslation("Current Quantum Energy Detected:" + currentEnergy));
 				}
 			

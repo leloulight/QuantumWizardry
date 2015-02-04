@@ -11,7 +11,5 @@ public class EventHandler {
 	{
 		if (event.entity instanceof EntityPlayer && PlayerNetworkManager.get((EntityPlayer) event.entity) == null)
 			PlayerNetworkManager.register((EntityPlayer) event.entity);
-		if (event.entity instanceof EntityPlayer && event.entity.getExtendedProperties(PlayerNetworkManager.EXT_PROP_NAME) == null)
-			event.entity.registerExtendedProperties(PlayerNetworkManager.EXT_PROP_NAME, new PlayerNetworkManager((EntityPlayer) event.entity));
 	}
 }
