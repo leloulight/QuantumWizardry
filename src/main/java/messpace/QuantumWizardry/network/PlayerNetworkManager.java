@@ -57,7 +57,7 @@ public class PlayerNetworkManager implements IExtendedEntityProperties
 	{
 		this.player = player;
 		this.currentEnergy = this.maxEnergy;
-		this.maxEnergy = 50;
+		this.maxEnergy = 500;
 	}
 
 	public static final void register(EntityPlayer player)

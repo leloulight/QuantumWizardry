@@ -21,6 +21,8 @@ public class QuantumWizardry {
 	@SidedProxy(clientSide="messpace.QuantumWizardry.common.ClientProxy", serverSide="messpace.QuantumWizardry.common.ServerProxy")
 	public static CommonProxy proxy;
 	
+	public boolean isGravityOffline = false;
+	
 	@EventHandler
 	public void preInit(FMLPreInitializationEvent e) {
 		ModBlocks.init();

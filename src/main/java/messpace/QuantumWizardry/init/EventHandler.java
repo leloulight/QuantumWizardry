@@ -6,6 +6,7 @@ import net.minecraftforge.event.entity.EntityEvent.EntityConstructing;
 import cpw.mods.fml.common.eventhandler.SubscribeEvent;
 
 public class EventHandler {
+	private boolean isOnGround;
 	@SubscribeEvent
 	public void onEntityConstructing(EntityConstructing event)
 	{

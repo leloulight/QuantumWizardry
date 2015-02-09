@@ -18,8 +18,10 @@ public class ItemQuantumReader extends Item {
 				PlayerNetworkManager props = PlayerNetworkManager.get(player);
 				int currentEnergy = props.getEnergy();
 				
+				props.replenishEnergy();
+				
 				if(!world.isRemote) {
-					player.addChatMessage(new ChatComponentTranslation("Current Quantum Energy Detected:" + currentEnergy));
+					player.addChatMessage(new ChatComponentTranslation("Current Quantum Energy Detected: " + currentEnergy));
 				}
 			
 			return itemstack;

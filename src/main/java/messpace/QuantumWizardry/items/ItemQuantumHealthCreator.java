@@ -18,7 +18,22 @@ public class ItemQuantumHealthCreator extends Item{
 		PlayerNetworkManager networkManager = PlayerNetworkManager.get(player);
 		float currentHealth = player.getHealth();
 		
-		if(networkManager.consumeEnergy(10)) {
+		if(currentHealth < 20.0F){
+			if(networkManager.consumeEnergy(10) == true) {
+				float newHealth = currentHealth + 2;
+				player.setHealth(newHealth);
+			}else{
+				if(world.isRemote){
+					player.addChatMessage(new ChatComponentTranslation("You don't have enough energy!"));
+				}
+			}
+		}else{
+			if(world.isRemote){
+				player.addChatMessage(new ChatComponentTranslation("You already have maxiumum health!"));
+			}
+		}
+		
+		/*if(networkManager.consumeEnergy(10) == true) {
 			System.out.println("[MANA ITEM] Player Had Enough Mana, Do Something Awesome!");
 			if(currentHealth < 20.0F) {
 				float newHealth = currentHealth + 2;
@@ -32,22 +47,6 @@ public class ItemQuantumHealthCreator extends Item{
 			System.out.println("[MANA ITEM] Player Didn't Have Enough Mana. Sadface!");
 			if(!world.isRemote) {
 				player.addChatMessage(new ChatComponentTranslation("You don't have enough energy!"));
-			}
-		}
-		
-		/*if(currentHealth < 20.0F) {
-			if(networkManager.checkEnoughEnergy(10) == true) {
-				networkManager.consumeEnergy(10);
-				float newHealth = currentHealth + 2.0F;
-				player.setHealth(newHealth);
-			}else{
-				if(!world.isRemote) {
-					player.addChatMessage(new ChatComponentTranslation("You don't have enough energy!"));
-				}
-			}
-		}else{
-			if(!world.isRemote) {
-				player.addChatMessage(new ChatComponentTranslation("You are already at maximum health!"));
 			}
 		}*/
 		
