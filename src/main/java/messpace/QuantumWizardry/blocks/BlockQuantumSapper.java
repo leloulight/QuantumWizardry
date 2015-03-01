@@ -1,5 +1,6 @@
 package messpace.QuantumWizardry.blocks;
 
+import messpace.QuantumWizardry.network.NetworkAliases;
 import messpace.QuantumWizardry.network.PlayerNetworkManager;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
@@ -16,12 +17,17 @@ public class BlockQuantumSapper extends Block{
 
 	@Override
 	public boolean onBlockActivated(World world, int par2, int par3, int par4, EntityPlayer player, int par6, float par7, float par8, float par9) {
-			PlayerNetworkManager networkManager = new PlayerNetworkManager(player);
-			networkManager.replenishEnergy();
-			
-		if(!world.isRemote) {
-			player.addChatMessage(new ChatComponentTranslation("10 Quantum Energy Sapped!"));
-		}
+			PlayerNetworkManager networkManager = PlayerNetworkManager.get(player);
+			NetworkAliases alias = new NetworkAliases();
+			int currentEnergy = networkManager.getEnergy();
+			if(currentEnergy <= 500) {
+				networkManager.addEnergy(10);
+				networkManager.replenishEnergy();
+				alias.serverMessage("10 Quantum Energy Sapped!", player, world);
+			}else{
+				alias.serverMessage("You already have maxiumum energy!", player, world);
+			}
+
 		return true;
 	}
 }

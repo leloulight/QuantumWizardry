@@ -1,5 +1,7 @@
 package messpace.QuantumWizardry.items;
 
+import java.util.List;
+
 import messpace.QuantumWizardry.network.PlayerNetworkManager;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.Item;
@@ -65,6 +67,12 @@ public class ItemEnhancedFlotationDevice extends Item{
 			}
 		}
 		return itemstack;
+	}
+	
+	@Override
+	public void addInformation(ItemStack stack, EntityPlayer player, List list, boolean par4) {
+		list.add("§b§oIt's Just Like The Real Deal,");
+		list.add("§b§oBut With An Extra Dose Of Caffine!");
 	}
 
 }

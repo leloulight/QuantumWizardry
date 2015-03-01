@@ -1,48 +1,11 @@
 package messpace.QuantumWizardry.network;
 
-import ibxm.Player;
-import io.netty.buffer.ByteBuf;
-import io.netty.channel.ChannelHandlerContext;
-
-import java.io.ByteArrayInputStream;
-import java.io.ByteArrayOutputStream;
-import java.io.DataInputStream;
-import java.io.DataOutputStream;
-import java.io.IOException;
-import java.lang.annotation.ElementType;
-
-import messpace.QuantumWizardry.common.CommonProxy;
-import net.minecraft.client.Minecraft;
-import net.minecraft.client.gui.Gui;
 import net.minecraft.entity.Entity;
-import net.minecraft.entity.EntityLivingBase;
+import net.minecraft.entity.SharedMonsterAttributes;
 import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.entity.player.EntityPlayerMP;
-import net.minecraft.item.Item;
-import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
-import net.minecraft.util.ResourceLocation;
 import net.minecraft.world.World;
-import net.minecraftforge.client.event.RenderGameOverlayEvent;
 import net.minecraftforge.common.IExtendedEntityProperties;
-import net.minecraftforge.common.MinecraftForge;
-import net.minecraftforge.event.entity.EntityEvent.EntityConstructing;
-import net.minecraftforge.event.entity.EntityJoinWorldEvent;
-import net.minecraftforge.event.entity.living.LivingFallEvent;
-
-import org.lwjgl.opengl.GL11;
-
-import cpw.mods.fml.common.FMLCommonHandler;
-import cpw.mods.fml.common.Mod.EventHandler;
-import cpw.mods.fml.common.event.FMLInitializationEvent;
-import cpw.mods.fml.common.event.FMLPostInitializationEvent;
-import cpw.mods.fml.common.eventhandler.EventPriority;
-import cpw.mods.fml.common.eventhandler.SubscribeEvent;
-import cpw.mods.fml.common.gameevent.PlayerEvent;
-import cpw.mods.fml.common.network.ByteBufUtils;
-import cpw.mods.fml.common.network.NetworkRegistry;
-import cpw.mods.fml.relauncher.Side;
-import cpw.mods.fml.relauncher.SideOnly;
 
 
 public class PlayerNetworkManager implements IExtendedEntityProperties
@@ -52,12 +15,15 @@ public class PlayerNetworkManager implements IExtendedEntityProperties
 	private final EntityPlayer player;
 
 	private int currentEnergy, maxEnergy;
+	
+	private double soulGone;
 
 	public PlayerNetworkManager(EntityPlayer player)
 	{
 		this.player = player;
-		this.currentEnergy = this.maxEnergy;
+		this.currentEnergy = 0;
 		this.maxEnergy = 500;
+		this.soulGone = 4d;
 	}
 
 	public static final void register(EntityPlayer player)
@@ -76,6 +42,7 @@ public class PlayerNetworkManager implements IExtendedEntityProperties
 		NBTTagCompound properties = new NBTTagCompound();
 		properties.setInteger("CurrentEnergy", this.currentEnergy);
 		properties.setInteger("MaxEnergy", this.maxEnergy);
+		properties.setDouble("PlayerSoul", this.soulGone);
 		compound.setTag(EXT_PROP_NAME, properties);
 	}
 
@@ -85,6 +52,7 @@ public class PlayerNetworkManager implements IExtendedEntityProperties
 		NBTTagCompound properties = (NBTTagCompound) compound.getTag(EXT_PROP_NAME);
 		this.currentEnergy = properties.getInteger("CurrentEnergy");
 		this.maxEnergy = properties.getInteger("MaxEnergy");
+		this.soulGone = properties.getDouble("PlayerSoul");
 		System.out.println("[TUT PROPS] Mana from NBT: " + this.currentEnergy + "/" + this.maxEnergy);
 	}
 	
@@ -108,6 +76,14 @@ public class PlayerNetworkManager implements IExtendedEntityProperties
 	public int getEnergy() {
 		System.out.println("Getting energy: "+this.currentEnergy+"/"+this.maxEnergy);
 		return this.currentEnergy;
+	}
+
+	public int maxEnergy() {
+		return this.maxEnergy;
+	}
+	
+	public void changeMaxEnergy(int amount) {
+		this.maxEnergy = this.maxEnergy + amount;
 	}
 
 	public void replenishEnergy()

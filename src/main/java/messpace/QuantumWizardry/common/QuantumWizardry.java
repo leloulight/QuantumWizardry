@@ -1,13 +1,16 @@
 package messpace.QuantumWizardry.common;
 
-import net.minecraftforge.common.MinecraftForge;
+import messpace.QuantumWizardry.creativetab.QuantumTab;
 import messpace.QuantumWizardry.init.ModBlocks;
 import messpace.QuantumWizardry.init.ModItems;
+import net.minecraft.creativetab.CreativeTabs;
+import net.minecraftforge.common.MinecraftForge;
 import cpw.mods.fml.common.Mod;
 import cpw.mods.fml.common.Mod.EventHandler;
 import cpw.mods.fml.common.Mod.Instance;
 import cpw.mods.fml.common.SidedProxy;
 import cpw.mods.fml.common.event.FMLInitializationEvent;
+import cpw.mods.fml.common.event.FMLInterModComms;
 import cpw.mods.fml.common.event.FMLPostInitializationEvent;
 import cpw.mods.fml.common.event.FMLPreInitializationEvent;
 
@@ -20,6 +23,7 @@ public class QuantumWizardry {
 	
 	@SidedProxy(clientSide="messpace.QuantumWizardry.common.ClientProxy", serverSide="messpace.QuantumWizardry.common.ServerProxy")
 	public static CommonProxy proxy;
+	public static ClientProxy clproxy;
 	
 	public boolean isGravityOffline = false;
 	
@@ -27,6 +31,7 @@ public class QuantumWizardry {
 	public void preInit(FMLPreInitializationEvent e) {
 		ModBlocks.init();
 		ModItems.init();
+		FMLInterModComms.sendMessage("IGWMod", "messpace.QuantumWizardry.common.IGWHandler", "init");
 		this.proxy.preInit(e);
 	}
 	
@@ -40,5 +45,7 @@ public class QuantumWizardry {
 	public void postInit(FMLPostInitializationEvent e) {
 		this.proxy.postInit(e);
 	}
+	
+	public static CreativeTabs tabQuantum = new QuantumTab(CreativeTabs.getNextID(), "tabQuantum");
 
 }
