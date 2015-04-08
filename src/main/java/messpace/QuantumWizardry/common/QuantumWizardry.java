@@ -1,8 +1,10 @@
 package messpace.QuantumWizardry.common;
 
 import messpace.QuantumWizardry.creativetab.QuantumTab;
+import messpace.QuantumWizardry.init.BiomeChanger;
 import messpace.QuantumWizardry.init.ModBlocks;
 import messpace.QuantumWizardry.init.ModItems;
+import messpace.QuantumWizardry.init.ModMobs;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraftforge.common.MinecraftForge;
 import cpw.mods.fml.common.Mod;
@@ -29,15 +31,17 @@ public class QuantumWizardry {
 	
 	@EventHandler
 	public void preInit(FMLPreInitializationEvent e) {
-		ModBlocks.init();
-		ModItems.init();
-		FMLInterModComms.sendMessage("IGWMod", "messpace.QuantumWizardry.common.IGWHandler", "init");
+		//FMLInterModComms.sendMessage("IGWMod", "messpace.QuantumWizardry.common.IGWHandler", "init");
+		ModMobs.init();
 		this.proxy.preInit(e);
 	}
 	
 	@EventHandler
 	public void init(FMLInitializationEvent e) {
 		this.proxy.init(e);
+		ModBlocks.init();
+		ModItems.init();
+		BiomeChanger.init();
 		MinecraftForge.EVENT_BUS.register(new messpace.QuantumWizardry.init.EventHandler());
 		}
 	

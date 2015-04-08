@@ -1,10 +1,12 @@
 package messpace.QuantumWizardry.init;
 
 import messpace.QuantumWizardry.network.PlayerNetworkManager;
-import net.minecraft.entity.SharedMonsterAttributes;
 import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.nbt.NBTTagCompound;
+import net.minecraft.world.biome.BiomeGenBase;
+import net.minecraft.world.biome.BiomeGenBase.Height;
 import net.minecraftforge.event.entity.EntityEvent.EntityConstructing;
-import net.minecraftforge.event.entity.player.PlayerDropsEvent;
+import net.minecraftforge.event.entity.living.LivingEvent.LivingUpdateEvent;
 import cpw.mods.fml.common.eventhandler.SubscribeEvent;
 
 public class EventHandler {
@@ -14,6 +16,17 @@ public class EventHandler {
 	{
 		if (event.entity instanceof EntityPlayer && PlayerNetworkManager.get((EntityPlayer) event.entity) == null)
 			PlayerNetworkManager.register((EntityPlayer) event.entity);
+	}
+	
+	@SubscribeEvent
+	public void onEntityConstructing(LivingUpdateEvent event) {
+		/*NBTTagCompound nbt = new NBTTagCompound();
+		boolean isWorldAwakened = nbt.getBoolean("QWIsWorldAwakened");
+		int currentWorldState = nbt.getInteger("QuantumWizardryWorldState");
+		if(isWorldAwakened == true){
+			
+		}*/
+		
 	}
 		
  }
