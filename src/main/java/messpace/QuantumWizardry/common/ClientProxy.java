@@ -1,7 +1,9 @@
 package messpace.QuantumWizardry.common;
 
 import messpace.QuantumWizardry.render.QuantumExchangerRenderer;
+import messpace.QuantumWizardry.render.QuantumSapperRenderer;
 import messpace.QuantumWizardry.tileentity.TileEntityQuantumExchanger;
+import messpace.QuantumWizardry.tileentity.TileEntityQuantumSapper;
 import cpw.mods.fml.client.registry.ClientRegistry;
 import cpw.mods.fml.common.event.FMLInitializationEvent;
 import cpw.mods.fml.common.event.FMLInterModComms;
@@ -32,6 +34,7 @@ public class ClientProxy extends CommonProxy{
 	
 	public void registerRenderers() {
 		ClientRegistry.bindTileEntitySpecialRenderer(TileEntityQuantumExchanger.class, new QuantumExchangerRenderer());
+		ClientRegistry.bindTileEntitySpecialRenderer(TileEntityQuantumSapper.class, new QuantumSapperRenderer());
 	}
 
 }

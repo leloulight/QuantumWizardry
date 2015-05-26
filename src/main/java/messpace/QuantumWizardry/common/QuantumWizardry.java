@@ -2,6 +2,7 @@ package messpace.QuantumWizardry.common;
 
 import messpace.QuantumWizardry.creativetab.QuantumTab;
 import messpace.QuantumWizardry.init.BiomeChanger;
+import messpace.QuantumWizardry.init.CraftingHandler;
 import messpace.QuantumWizardry.init.ModBlocks;
 import messpace.QuantumWizardry.init.ModItems;
 import messpace.QuantumWizardry.init.ModMobs;
@@ -27,12 +28,10 @@ public class QuantumWizardry {
 	public static CommonProxy proxy;
 	public static ClientProxy clproxy;
 	
-	public boolean isGravityOffline = false;
-	
 	@EventHandler
 	public void preInit(FMLPreInitializationEvent e) {
 		//FMLInterModComms.sendMessage("IGWMod", "messpace.QuantumWizardry.common.IGWHandler", "init");
-		ModMobs.init();
+		//ModMobs.init();
 		this.proxy.preInit(e);
 	}
 	
@@ -47,6 +46,7 @@ public class QuantumWizardry {
 	
 	@EventHandler
 	public void postInit(FMLPostInitializationEvent e) {
+		CraftingHandler.init();
 		this.proxy.postInit(e);
 	}
 	

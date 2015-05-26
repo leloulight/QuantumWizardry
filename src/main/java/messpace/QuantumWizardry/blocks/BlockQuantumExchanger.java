@@ -16,7 +16,6 @@ public class BlockQuantumExchanger extends BlockContainer{
 	
 	public BlockQuantumExchanger(Material blockMaterial) {
 		super(blockMaterial);
-		this.setBlockBounds(0.0F, 0.0F, 0.0F, 1.0F, 5.0F, 1.0F);
 	}
 	
 	@Override

@@ -2,13 +2,15 @@ package messpace.QuantumWizardry.blocks;
 
 import messpace.QuantumWizardry.network.NetworkAliases;
 import messpace.QuantumWizardry.network.PlayerNetworkManager;
-import net.minecraft.block.Block;
+import messpace.QuantumWizardry.tileentity.TileEntityQuantumSapper;
+import net.minecraft.block.BlockContainer;
 import net.minecraft.block.material.Material;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.Blocks;
+import net.minecraft.tileentity.TileEntity;
 import net.minecraft.world.World;
 
-public class BlockQuantumSapper extends Block{
+public class BlockQuantumSapper extends BlockContainer{
 
 	public BlockQuantumSapper(Material blockMaterial) {
 		super(blockMaterial);
@@ -33,5 +35,25 @@ public class BlockQuantumSapper extends Block{
 			}
 
 		return true;
+	}
+	
+	@Override
+	public int getRenderType() {
+		return -1;
+	}
+	
+	@Override
+	public boolean isOpaqueCube() {
+		return false;
+	}
+	
+	@Override
+	public boolean renderAsNormalBlock() {
+		return false;
+	}
+
+	@Override
+	public TileEntity createNewTileEntity(World arg0, int arg1) {
+		return new TileEntityQuantumSapper();
 	}
 }

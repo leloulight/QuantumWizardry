@@ -6,6 +6,8 @@ import messpace.QuantumWizardry.items.ItemEnhancedFlotationDevice;
 import messpace.QuantumWizardry.items.ItemFlotationDevice;
 import messpace.QuantumWizardry.items.ItemQuantumHealthCreator;
 import messpace.QuantumWizardry.items.ItemQuantumReader;
+import messpace.QuantumWizardry.items.ItemQuantumWand;
+import messpace.QuantumWizardry.items.ItemQuantumWandOfEnergeticTransmission;
 import messpace.QuantumWizardry.items.ItemSoulDeconstructor;
 import messpace.QuantumWizardry.items.ItemSoulPiece;
 import messpace.QuantumWizardry.items.ItemSoulReconstructor;
@@ -54,7 +56,9 @@ public class ModItems {
 	public static Item ChargedQuantumAxe = new ChargedQuantumAxe(ChargedQuantumTools).setUnlocalizedName("ChargedQuantumAxe").setTextureName("quantumwizardry:QuantumAxe").setCreativeTab(QuantumWizardry.tabQuantum);
 	//Food
 	public static Item QuantumBread = new FoodQuantumBread(2, 1.0F, false).setUnlocalizedName("QuantumBread").setTextureName("quantumwizardry:QuantumBread").setCreativeTab(QuantumWizardry.tabQuantum);
-
+	//Wands
+	public static Item QuantumWand = new ItemQuantumWand().setUnlocalizedName("QuantumWand").setTextureName("quantumwizardry:QuantumWand").setCreativeTab(QuantumWizardry.tabQuantum);
+	public static Item QuantumWandOfEnergeticTransmission = new ItemQuantumWandOfEnergeticTransmission().setUnlocalizedName("QuantumWandOfEnergeticTransmission").setTextureName("quantumwizardry:WandOfEnergeticTransmission").setCreativeTab(QuantumWizardry.tabQuantum);
 
 
 	
@@ -78,6 +82,8 @@ public class ModItems {
 		GameRegistry.registerItem(ChargedQuantumHoe, "ChargedQuantumHoe");
 		GameRegistry.registerItem(ChargedQuantumAxe, "ChargedQuantumAxe");
 		GameRegistry.registerItem(QuantumBread, "QuantumBread");
+		GameRegistry.registerItem(QuantumWand, "QuantumWand");
+		GameRegistry.registerItem(QuantumWandOfEnergeticTransmission, "QuantumWandOfEnergeticTransmission");
 	}
 
 }

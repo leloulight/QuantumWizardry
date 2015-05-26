@@ -19,14 +19,10 @@ public class EventHandler {
 	}
 	
 	@SubscribeEvent
-	public void onEntityConstructing(LivingUpdateEvent event) {
-		/*NBTTagCompound nbt = new NBTTagCompound();
-		boolean isWorldAwakened = nbt.getBoolean("QWIsWorldAwakened");
-		int currentWorldState = nbt.getInteger("QuantumWizardryWorldState");
-		if(isWorldAwakened == true){
-			
-		}*/
-		
+	public void onEntityUpdate(LivingUpdateEvent event) {
+		NBTTagCompound nbt = new NBTTagCompound();
+		boolean isWorldAwakened;
+		isWorldAwakened = nbt.getBoolean("isWorldAwakened");
 	}
 		
  }

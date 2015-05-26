@@ -1,0 +1,34 @@
+itemGroup.tabQuantum=Quantum Wizardry
+
+tile.QuantumSapper.name=Quantum Sapper
+tile.QuantumExchanger.name=Quantum Exchanger
+tile.GeothermalGenerator.name=Geothermal Generator
+tile.QuantumShardBlock.name=Quantum Shard Block
+tile.AwakenedShardBlock.name=Awakened Quantum Shard Block
+tile.QuantumFabricator.name=Quantum Fabricator
+tile.CompressedQuantumEnergy.name=Compressed Quantum Energy
+
+item.QuantumReader.name=Quantum Reader
+item.QuantumHealthCreator.name=Quantum Health Creator
+item.QuantumWizardsFlotationDevice.name=Quantum Wizard's Flotation Device
+item.QuantumWizardsEnhancedFlotationDevice.name=Quantum Wizard's Enhanced Flotation Device
+item.SoulPiece.name=Soul Piece
+item.SoulDeconstructor.name=Soul Deconstructor
+item.SoulReconstructor.name=Soul Reconstructor
+item.QuantumShard.name=Quantum Shard
+item.QuantumSword.name=Quantum Sword
+item.QuantumShovel.name=Quantum Shovel
+item.QuantumPickaxe.name=Quantum Pickaxe
+item.QuantumHoe.name=Quantum Hoe
+item.QuantumAxe.name=Quantum Axe
+item.ChargedQuantumSword.name=Charged Quantum Sword
+item.ChargedQuantumShovel.name=Charged Quantum Shovel
+item.ChargedQuantumPickaxe.name=Charged Quantum Pickaxe
+item.ChargedQuantumHoe.name=Charged Quantum Hoe
+item.ChargedQuantumAxe.name=Charged Quantum Axe
+item.QuantumBread.name=Quantum Bread
+item.QuantumWand.name=Quantum Wand
+item.QuantumWandOfEnergeticTransmission.name=Quantum Wand of Energetic Transmission
+
+igwtab.entry.welcome=Welcome!
+igwtab.entry.reader=Quantum Reader

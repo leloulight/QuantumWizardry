@@ -1,0 +1,3 @@
+
+[color{0000FF}][prefix{l}]Quantum Reader[prefix{}]
+[crafting{200,50,key=igwtab/reader}]

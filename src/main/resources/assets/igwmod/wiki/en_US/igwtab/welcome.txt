@@ -1,0 +1,20 @@
+[color{009933}][prefix{l}]Quantum Wizardry Mod![prefix{}]
+[color{000000}]Welcome to the In-Game Wiki for the Quantum Wizardy Mod! In here, you will find the information for all of the blocks and items in this wiki!
+Before we move on, I'd like to thank MineMaarten for making the In Game Wiki Mod, which enables this entire wiki to work!
+
+[color{FFCC00}][prefix{l}]What is it?[prefix{}]
+[color{000000}]The Quantum Wizardry Mod is a mod that allows the player to use the quantum energy stored inside the earth to do cool things like, fly and stuff!
+
+[color{0000FF}][prefix{l}]Download Links[prefix{}]
+[color{000000}]You've already downloaded the mod, silly!
+
+[color{FF3399}][prefix{l}]Current Items[prefix{}]
+[color{000000}]The current complete items in the mod are:
+
+[prefix{o}][link{igwtab/reader}]Quantum Reader[link{}] - Reads How Much Quantum Energy You Have.
+
+[color{EB4444}][prefix{o}]Quantum Health Creator[color{000000}] - Heals One Heart for 10 energy.
+
+Quantum Wizard's Flotation Device - Gives Flying Ability.
+
+Quantum Wizard's Enhanced Flotation Device - Also Gives Flying Ability.
